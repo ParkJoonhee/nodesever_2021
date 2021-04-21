@@ -7,4 +7,4 @@ function onRequest(req, res) {
 }
 server = http.createServer(onRequest)
 server.listen(8000, 'localhost');
-console.log('Server running at http://local:8000');
+console.log('Server running at http://localhost:8000');
