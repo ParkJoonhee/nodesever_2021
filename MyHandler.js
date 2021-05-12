@@ -2,7 +2,7 @@ const fs = require('fs');
 
 function start(res) {
     let body = '<head><meta charset = "UTF-8"/></head>'
-    body += '<body><div>Hello World! <br> I am in the cloud class.</div>';
+    body += '<body><div>Hello World! <br> I am in the cloud class.</div><br>';
     body += '<div><a href="/hello">hello 페이지</a></div>'
     body += '<div><a href="/wait">5초 대기 페이지</a></div>'
     body += '<div><a href="/randomwait">무작위 대기 페이지</a></div>'
@@ -56,3 +56,4 @@ exports.hello = hello;
 exports.wait = wait;
 exports.randomwait = randomwait;
 exports.firstHtml = firstHtml;
+exports.htmlFile = htmlFile;
