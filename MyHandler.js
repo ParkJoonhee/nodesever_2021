@@ -6,7 +6,7 @@ function start(res) {
     body += '<body><div>Hello World! <br> I am in the cloud class.</div><br>';
     body += '<div><a href="/hello">hello 페이지</a></div>'
     body += '<div><a href="/wait">5초 대기 페이지</a></div>'
-    body += '<div><a href="/randomwait">무작위 대기 페이지</a></div>'
+    body += '<div><a href="/randomWait">무작위 대기 페이지</a></div>'
     body += '<div><a href="/firstHtml">HTML 읽는 페이지</a></div>'
     body += '<div><a href="/page">Handler 없이 "/page"로 매핑하는 페이지</a></div>'
     body += '<div><a href="/serverInfo">Server 정보를 표시하는 페이지</a></div>'
@@ -33,7 +33,7 @@ function wait(res) {
 }
 
 
-function randomwait(res) {
+function randomWait(res) {
     let waitTime = Math.round(Math.random()*10000.)
     setTimeout(function() {
         let body = 'Thank you for waiting for ' + waitTime +' ms.';
@@ -64,7 +64,7 @@ function serverInfo(res) {
 exports.start = start;
 exports.hello = hello;
 exports.wait = wait;
-exports.randomwait = randomwait;
+exports.randomWait = randomWait;
 exports.firstHtml = firstHtml;
 exports.htmlFile = htmlFile;
 exports.serverInfo = serverInfo;
