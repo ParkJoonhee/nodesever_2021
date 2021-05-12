@@ -2,6 +2,7 @@ function start(res) {
     let body = '<head><meta charset = "UTF-8"/></head>'
     body += '<body><div>Hello World! <br> I am in the cloud class.</div>';
     body += '<div><a href="\hello">hello 페이지</a></div>'
+    body += '<div><a href="\wait">5초 대기 페이지</a></div>'
     body += '</body>'
     res.writeHead(200, {'Content-Type': 'text/html'});
     res.write(body);
@@ -23,6 +24,8 @@ function wait(res) {
         res.end();
     }, 5000);
 }
+
+
 
 exports.start = start;
 exports.hello = hello;
