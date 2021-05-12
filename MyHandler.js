@@ -1,6 +1,6 @@
 const fs = require('fs');
 const os = require('os');
-const queryString = require('queryString');
+const queryString = require('querystring');
 
 function start(res) {
     let body = '<head><meta charset = "UTF-8"/></head>'
@@ -13,6 +13,7 @@ function start(res) {
     body += '<div><a href="/serverInfo">Server 정보를 표시하는 페이지</a></div>'
     body += '<div><a href="/form">Form 입력 페이지</a></div>'
     body += '<div><a href="/nickname">Form으로 넘어온 이름과 별명 표시 페이지</a></div>'
+    body += '<div><a href="/people">JSON을 입력받아 사람 정보를 표시하는 페이지</a></div>';
     body += '</body>'
     res.writeHead(200, {'Content-Type': 'text/html'});
     res.write(body);
@@ -64,13 +65,22 @@ function serverInfo(res) {
     res.end();
 }
 
-function nickname(res, pathData) {
+function nickname(res, postData) {
     let body = '<head><meta charset = "UTF-8"/></head>'
     body += '<body><div>안녕하세요. ' + queryString.parse(postData).myName + '님.</div>'
     body += '<div>당신의 별명은 ' + queryString.parse(postData).myNick + '입니다.</div>';
     body += '</body>'
     res.writeHead(200, {'Content-Type': 'text/html'});
     res.write(body);
+    res.end();
+}
+
+function people(res) {
+    str = fs.readFileSync('people.json', 'utf-8');
+    obj = JSON.parse(str);
+    console.log(obj.name + ': ' + obj.house);
+    res.writeHead(200, { 'Content-Type': 'text/html' });
+    res.write(str);
     res.end();
 }
 
@@ -82,3 +92,4 @@ exports.firstHtml = firstHtml;
 exports.htmlFile = htmlFile;
 exports.serverInfo = serverInfo;
 exports.nickname = nickname;
+exports.people = people;
